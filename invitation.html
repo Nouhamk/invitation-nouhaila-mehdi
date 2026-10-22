@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nouhaila &amp; Mehdi — 28 novembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Amiri:wght@400;700&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=block" rel="stylesheet">
+<style>
+:root{--ivory:#fbf8f1;--green:#3e4a34;--gold:#a88a55;--ink:#45463c}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:5in 7in;margin:0}
+html,body{height:100%}
+body{overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#fbf9f4,#f1ece2 60%,#e7e1d4);font-family:'Cormorant Garamond',serif}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.6),transparent 50%)}
+.stage{position:absolute;left:50%;top:50%;width:520px;height:860px;margin:-430px 0 0 -260px;perspective:1800px;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+.stage>*{position:absolute}
+.env{left:40px;top:470px;width:440px;height:300px;transition:transform 1.4s cubic-bezier(.5,0,.3,1),opacity 1.2s ease}
+.env svg{display:block;width:100%;height:100%}
+.back{z-index:1;box-shadow:0 22px 40px -8px rgba(60,55,35,.35),0 3px 6px rgba(60,55,35,.18)}
+.wrap{left:40px;top:470px;width:440px;height:300px;z-index:2;clip-path:inset(-1000px -1000px 2px -1000px)}
+.pocket{z-index:3;pointer-events:none}
+.flap{height:174px;z-index:4;transition:transform 1.4s cubic-bezier(.5,0,.3,1),z-index 0s .65s,opacity 1.2s ease}
+.flap .face,.flap .seal{transform-origin:top center;transition:transform .65s cubic-bezier(.4,0,.9,.6) .65s}
+.flap .face{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.flap .inner{top:-100%;transform-origin:bottom center;transform:perspective(1400px) rotateX(-90deg);transition:transform .65s cubic-bezier(.1,.4,.6,1) 0s}
+.open .flap .face:not(.inner),.open .flap .seal{transform:perspective(1400px) rotateX(90deg);transition-delay:0s}
+.open .flap .inner{transform:perspective(1400px) rotateX(0);transition-delay:.65s}
+.flap .face:not(.inner){filter:drop-shadow(0 1.5px 1.5px rgba(25,27,18,.4)) drop-shadow(0 5px 8px rgba(25,27,18,.15))}
+.flap .seal{position:absolute;left:50%;top:100%;width:96px;height:96px;margin:-54px 0 0 -48px;transform-origin:48px -120px;filter:drop-shadow(0 2px 1.5px rgba(30,25,10,.5)) drop-shadow(0 7px 9px rgba(30,25,10,.3))}
+.welcome,.hint{left:0;right:0;text-align:center;color:#55594a;transition:opacity .9s ease}
+.welcome{top:250px}
+.welcome .ar{font-family:'Amiri',serif;font-size:34px;color:#a88a55;direction:rtl}
+.welcome .caps{color:#55594a;font-size:11px;margin-top:10px;letter-spacing:.3em}
+.welcome .wo{display:block;width:140px;height:14px;margin:10px auto 0}
+.hint{top:800px;font:500 11px 'Cinzel',serif;letter-spacing:.28em;text-transform:uppercase;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.4}}
+.replay{position:fixed;left:0;right:0;bottom:14px;margin:auto;width:max-content;font:500 10px 'Cinzel',serif;letter-spacing:.3em;text-transform:uppercase;color:#55594a;background:none;border:0;padding:8px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .8s}
+.open .flap{z-index:0}
+.open .welcome,.open .hint{opacity:0;animation:none}
+.final .env{transform:translateY(160px);opacity:0;pointer-events:none}
+.done .replay{opacity:.6;pointer-events:auto}
+.done .stage{cursor:default}
+.card{position:absolute;left:-20px;top:-376px;width:480px;height:672px;transform-origin:0 0;transform:translate(29px,388px) scale(.88);
+  transition:transform 1.5s cubic-bezier(.45,.05,.25,1),box-shadow .8s ease;background:var(--ivory);color:var(--ink);overflow:hidden}
+.rise .card{transform:translate(29px,40px) scale(.88);box-shadow:0 30px 60px rgba(60,55,35,.3),0 4px 12px rgba(60,55,35,.15)}
+.final .card{transform:none}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.3;mix-blend-mode:multiply;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='.4'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .33 0 0 0 0 .22 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.art{position:absolute;inset:0;width:100%;height:100%}
+.content{position:absolute;left:104px;right:104px;top:144px;bottom:40px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.caps{font-family:'Cinzel',serif;font-weight:500;text-transform:uppercase;letter-spacing:.22em;font-size:8.5px;line-height:1.7;color:var(--green)}
+.bism{font-family:'Amiri',serif;font-size:17px;line-height:1.2;color:var(--gold);direction:rtl}
+.intro{max-width:200px;margin-top:8px}
+.names{font-family:'Pinyon Script',cursive;color:var(--green);font-weight:400;line-height:.95;margin-top:6px}
+.names span{display:block;font-size:46px}
+.names .amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1.1;color:var(--gold);margin:2px 0 4px}
+.lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;line-height:1.3;margin-top:8px;max-width:230px}
+.orn{width:120px;height:14px;margin:8px 0}
+.duaa{margin-top:9px;max-width:230px}
+.duaa .ar{font-family:'Amiri',serif;font-size:14px;line-height:1.5;color:var(--green);direction:rtl}
+.duaa .fr{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;line-height:1.3;margin-top:2px;opacity:.85}
+.date{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;width:236px}
+.date .side{border-top:.75px solid var(--gold);border-bottom:.75px solid var(--gold);padding:5px 0 4px}
+.date .day{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;line-height:1;color:var(--green)}
+.year{margin-top:6px}
+.time{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;margin-top:4px}
+.venue{margin-top:10px}
+.venue .place{font-family:'Cinzel',serif;font-size:12.5px;letter-spacing:.16em;color:var(--green)}
+.venue .addr{font-family:'Cormorant Garamond',serif;font-size:13px;margin-top:3px}
+.rsvp{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:5px}
+.rsvp .note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12.5px}
+.rsvp a{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);text-decoration:none;
+  border:.75px solid var(--gold);outline:.5px solid var(--gold);outline-offset:2.5px;padding:7px 18px 6px;transition:background .3s,color .3s}
+.rsvp a:hover{background:var(--green);color:var(--ivory)}
+.fx{opacity:0;transform:translateY(8px)}
+.art .fx{transform:none}
+.reveal .fx{animation:in 1.4s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.1s!important}.d2{animation-delay:.4s!important}.d3{animation-delay:.7s!important}.d4{animation-delay:1s!important}.d5{animation-delay:1.3s!important}.d6{animation-delay:1.6s!important}.d7{animation-delay:1.9s!important}
+@keyframes in{to{opacity:1;transform:none}}
+/* sections revealed below the card once the envelope is open */
+html{scroll-behavior:smooth;background:#ece7dc}
+body.done{overflow:auto;background-attachment:fixed}
+.replay{position:absolute;top:14px;left:14px;right:auto;bottom:auto;margin:0}
+.down{position:absolute;left:0;right:0;top:calc(100vh - 54px);margin:auto;width:max-content;font:500 10px 'Cinzel',serif;letter-spacing:.3em;text-transform:uppercase;color:#55594a;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .8s}
+.done .down{opacity:.75;pointer-events:auto;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.music{position:fixed;top:14px;right:14px;z-index:10;width:40px;height:40px;border-radius:50%;border:.75px solid var(--gold);background:rgba(251,248,241,.85);display:flex;align-items:center;justify-content:center;gap:2.5px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .8s}
+.open .music{opacity:1;pointer-events:auto}
+.music i{width:2px;height:4px;background:var(--gold);border-radius:1px;transition:height .3s}
+.music.on i{animation:eq 1s ease-in-out infinite}
+.music.on i:nth-child(2){animation-delay:-.3s}.music.on i:nth-child(3){animation-delay:-.6s}.music.on i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{50%{height:14px}}
+.more{display:none;position:relative;margin-top:100vh;padding:10px 18px 60px;color:var(--ink)}
+.done .more{display:block;animation:up 1.2s ease both}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.sec{max-width:440px;margin:0 auto 26px;background:var(--ivory);padding:40px 32px 36px;text-align:center;position:relative;box-shadow:0 18px 40px -18px rgba(60,55,35,.3),0 2px 6px rgba(60,55,35,.08)}
+.sec::before{content:"";position:absolute;inset:9px;border:.75px solid rgba(168,138,85,.55);pointer-events:none}
+.num{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:var(--gold)}
+.sec h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:38px;line-height:1.15;color:var(--green);margin-top:2px}
+.sec .orn{display:block;margin:6px auto 16px}
+.sub{font-style:italic;font-size:16px;line-height:1.4}
+.clock{display:flex;justify-content:center;margin-top:14px}
+.clock div{min-width:58px}
+.clock b{display:block;font:400 30px/1.15 'Cinzel',serif;color:var(--green);font-variant-numeric:tabular-nums}
+.clock span,.form label,.form legend{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.clock i{width:.75px;margin:0 6px;background:linear-gradient(transparent,var(--gold),transparent)}
+.tl{list-style:none;text-align:left;margin:0 auto;max-width:300px;position:relative;padding-left:84px}
+.tl::before{content:"";position:absolute;left:66px;top:6px;bottom:8px;width:.75px;background:linear-gradient(var(--gold),rgba(168,138,85,.25))}
+.tl li{position:relative;padding-bottom:18px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-22px;top:5px;width:7px;height:7px;border:.75px solid var(--gold);background:var(--ivory);transform:rotate(45deg)}
+.tl time{position:absolute;left:-84px;top:1px;width:52px;text-align:right;font:400 13px 'Cinzel',serif;color:var(--gold)}
+.tl strong{display:block;font:500 11px 'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.tl span{font-style:italic;font-size:14.5px}
+.map{display:block;width:100%;height:auto;margin:4px 0 12px;border:.75px solid rgba(168,138,85,.5)}
+.place2{font:400 13px 'Cinzel',serif;letter-spacing:.16em;color:var(--green)}
+.btn{display:inline-block;margin:14px 5px 0;font:400 9px 'Cinzel',serif;letter-spacing:.24em;text-transform:uppercase;color:var(--green);text-decoration:none;background:none;border:.75px solid var(--gold);outline:.5px solid var(--gold);outline-offset:2.5px;padding:9px 18px 8px;cursor:pointer;transition:background .3s,color .3s}
+.btn:hover,.btn:focus-visible{background:var(--green);color:var(--ivory)}
+.form{display:grid;gap:16px;text-align:left;margin-top:18px}
+.form label{display:grid;gap:4px}
+.form fieldset{border:0;display:grid;gap:6px}
+.form input:not([type=radio]),.form select,.form textarea{font:17px 'Cormorant Garamond',serif;color:var(--ink);background:transparent;border:0;border-bottom:.75px solid var(--gold);border-radius:0;padding:4px 2px;outline:none;width:100%}
+.form textarea{resize:vertical;min-height:64px}
+.form input:focus,.form select:focus,.form textarea:focus{border-bottom-color:var(--green)}
+.choice{display:flex;gap:10px}
+.choice label{flex:1;display:block;position:relative}
+.choice input{position:absolute;opacity:0}
+.choice span{display:block;text-align:center;border:.75px solid var(--gold);padding:10px 4px 9px;font:400 9px 'Cinzel',serif;letter-spacing:.18em;color:var(--green);cursor:pointer;transition:background .3s,color .3s}
+.choice input:checked+span{background:var(--green);color:var(--ivory)}
+.choice input:focus-visible+span{outline:1px solid var(--green);outline-offset:2px}
+.form .btn{justify-self:center;margin-top:4px}
+.form[hidden]{display:none}
+.thanks{font-style:italic;font-size:15px;color:var(--green);margin-top:12px}
+.foot{text-align:center;font:400 30px 'Pinyon Script',cursive;color:var(--green);margin-top:8px}
+.foot small{display:block;font:400 9px 'Cinzel',serif;letter-spacing:.3em;color:var(--gold);margin-top:4px}
+/* static mode used for PDF/PNG export (?export) */
+.export,html:has(.export){background:var(--ivory)}
+.export::before,.export .env,.export .welcome,.export .hint,.export .replay{display:none}
+.export .fx{animation:none;opacity:1;transform:none}
+.export .stage{left:0;top:0;margin:0;transform:none!important;perspective:none}
+.export .wrap,.export .card{position:fixed;left:0;top:0;clip-path:none;transform:none;box-shadow:none}
+@media (prefers-reduced-motion:reduce){.stage *{transition-duration:.01s!important}.fx{animation-duration:.01s!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#4a3f28" flood-opacity=".2"/></filter>
+    <filter id="paperfx" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".42" numOctaves="3" seed="8"/>
+      <feGaussianBlur stdDeviation=".45" result="fine"/>
+      <feDiffuseLighting in="fine" surfaceScale=".75" lighting-color="#fff" result="lit"><feDistantLight azimuth="235" elevation="62"/></feDiffuseLighting>
+      <feComponentTransfer in="lit" result="relief"><feFuncR type="linear" slope=".2" intercept=".32"/><feFuncG type="linear" slope=".2" intercept=".32"/><feFuncB type="linear" slope=".2" intercept=".32"/></feComponentTransfer>
+      <feBlend in="relief" in2="SourceGraphic" mode="overlay" result="p"/>
+      <feComposite in="p" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <radialGradient id="core"><stop offset="0" stop-color="#8a7348" stop-opacity=".55"/><stop offset="1" stop-color="#8a7348" stop-opacity="0"/></radialGradient>
+    <linearGradient id="white" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#cbbfa6"/><stop offset=".5" stop-color="#efe9dc"/><stop offset="1" stop-color="#fffefa"/></linearGradient>
+    <linearGradient id="ivory" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#bfae8c"/><stop offset=".55" stop-color="#ece2cc"/><stop offset="1" stop-color="#fbf6ea"/></linearGradient>
+    <linearGradient id="champ" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#b8955e"/><stop offset=".55" stop-color="#e2cba0"/><stop offset="1" stop-color="#f6ecd6"/></linearGradient>
+    <linearGradient id="leaf" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#56603f"/><stop offset="1" stop-color="#9fa883"/></linearGradient>
+    <linearGradient id="oliv" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#5f6a48"/><stop offset="1" stop-color="#b3ba9c"/></linearGradient>
+    <linearGradient id="euc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c3cbbb"/><stop offset="1" stop-color="#7f8f80"/></linearGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".5" stop-color="#000" stop-opacity="0"/></linearGradient>
+    <radialGradient id="pgl" cx=".5" cy=".18" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="pbs" x1=".5" y1="1" x2=".5" y2=".45"><stop offset="0" stop-color="#5e4b2c" stop-opacity=".45"/><stop offset="1" stop-color="#5e4b2c" stop-opacity="0"/></linearGradient>
+    <radialGradient id="rcore" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#6e5530" stop-opacity=".3"/><stop offset=".6" stop-color="#9a7f52" stop-opacity=".1"/><stop offset="1" stop-color="#9a7f52" stop-opacity="0"/></radialGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5f634e"/><stop offset="1" stop-color="#555946"/></linearGradient>
+    <linearGradient id="flapg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a5e49"/><stop offset="1" stop-color="#5f634e"/></linearGradient>
+    <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f6f3a"/><stop offset=".28" stop-color="#e6cf96"/><stop offset=".48" stop-color="#b18c50"/><stop offset=".7" stop-color="#f3e2b3"/><stop offset="1" stop-color="#9a7a43"/></linearGradient>
+    <radialGradient id="waxg" cx=".4" cy=".38" r=".75"><stop offset="0" stop-color="#e2c98e"/><stop offset=".6" stop-color="#bf9a58"/><stop offset="1" stop-color="#8d6c35"/></radialGradient>
+    <filter id="waxfx" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="b"/>
+      <feDiffuseLighting in="b" surfaceScale="6" lighting-color="#fff" result="d"><feDistantLight azimuth="225" elevation="48"/></feDiffuseLighting>
+      <feSpecularLighting in="b" surfaceScale="6" specularConstant=".9" specularExponent="22" lighting-color="#fff" result="s"><feDistantLight azimuth="225" elevation="42"/></feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="d" operator="arithmetic" k1="1.25" result="lit"/>
+      <feComposite in="s" in2="lit" operator="arithmetic" k2=".45" k3="1" result="o"/>
+      <feComposite in="o" in2="SourceAlpha" operator="in"/>
+    </filter>
+    <filter id="rec" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation=".9" result="b"/>
+      <feOffset in="b" dx="1.6" dy="1.6" result="o1"/><feComposite in="SourceAlpha" in2="o1" operator="out" result="e1"/>
+      <feFlood flood-color="#0d1006" flood-opacity=".75"/><feComposite in2="e1" operator="in" result="dark"/>
+      <feOffset in="b" dx="-1.2" dy="-1.2" result="o2"/><feComposite in="SourceAlpha" in2="o2" operator="out" result="e2"/>
+      <feFlood flood-color="#fff4d4" flood-opacity=".55"/><feComposite in2="e2" operator="in" result="lite"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="dark"/><feMergeNode in="lite"/></feMerge>
+    </filter>
+    <filter id="rai" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation=".35" result="b"/>
+      <feOffset in="b" dx=".7" dy=".7" result="o1"/><feComposite in="SourceAlpha" in2="o1" operator="out" result="e1"/>
+      <feFlood flood-color="#fffbe8" flood-opacity=".85"/><feComposite in2="e1" operator="in" result="lite"/>
+      <feOffset in="b" dx="-.7" dy="-.7" result="o2"/><feComposite in="SourceAlpha" in2="o2" operator="out" result="e2"/>
+      <feFlood flood-color="#3a2a10" flood-opacity=".7"/><feComposite in2="e2" operator="in" result="dark"/>
+      <feOffset in="SourceAlpha" dx=".5" dy=".8" result="so"/><feGaussianBlur in="so" stdDeviation=".5" result="sb"/>
+      <feFlood flood-color="#0d1006" flood-opacity=".55"/><feComposite in2="sb" operator="in" result="cast"/>
+      <feMerge><feMergeNode in="cast"/><feMergeNode in="SourceGraphic"/><feMergeNode in="lite"/><feMergeNode in="dark"/></feMerge>
+    </filter>
+    <radialGradient id="wash"><stop offset="0" stop-color="#e6d6b5" stop-opacity=".45"/><stop offset="1" stop-color="#e6d6b5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wax" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#f0dca8"/><stop offset=".55" stop-color="#c4a061"/><stop offset="1" stop-color="#806030"/></radialGradient>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="1" fill="#a88a55" fill-opacity=".5"/></pattern>
+    <pattern id="liner" width="36" height="36" patternUnits="userSpaceOnUse">
+      <rect width="36" height="36" fill="#efe8d8"/>
+      <g fill="none" stroke="#c9a96a" stroke-width=".7" stroke-opacity=".8">
+        <path d="M11 11H25V25H11Z"/><path d="M18 8.1L27.9 18L18 27.9L8.1 18Z"/>
+        <path d="M0 18H8.1M27.9 18H36M18 0V8.1M18 27.9V36"/>
+        <path d="M0 4L4 0M32 0L36 4M36 32L32 36M4 36L0 32"/>
+      </g>
+      <circle cx="18" cy="18" r="2" fill="#c9a96a" fill-opacity=".85"/>
+    </pattern>
+    <g id="star"><rect x="-7" y="-7" width="14" height="14"/><rect x="-7" y="-7" width="14" height="14" transform="rotate(45)"/></g>
+  </defs>
+</svg>
+<div class="stage" id="stage" role="button" tabindex="0" aria-label="Ouvrir l'invitation">
+  <div class="welcome">
+    <p class="ar">بسم الله الرحمن الرحيم</p>
+    <svg class="wo" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7H50M70 7H120" stroke="#c9a96a" stroke-width=".6"/><path d="M60 2L65 7L60 12L55 7Z" fill="none" stroke="#c9a96a" stroke-width=".8"/></svg>
+    <p class="caps">Une invitation vous attend</p>
+  </div>
+
+  <svg class="env back" viewBox="0 0 440 300" preserveAspectRatio="none" aria-hidden="true">
+    <rect width="440" height="300" fill="#5a5e49" filter="url(#paperfx)"/><rect x="10" y="10" width="420" height="290" fill="url(#liner)" filter="url(#paperfx)"/><rect width="440" height="300" fill="url(#sh)"/>
+  </svg>
+
+  <div class="wrap">
+<main class="card" id="card">
+  <svg class="art" viewBox="0 0 480 672" aria-hidden="true">
+    <circle cx="20" cy="20" r="240" fill="url(#wash)"/>
+    <circle cx="470" cy="660" r="260" fill="url(#wash)"/>
+    <rect x="14" y="14" width="452" height="644" fill="none" stroke="#b08a52" stroke-width=".9"/>
+    <rect x="19" y="19" width="442" height="634" fill="none" stroke="#b08a52" stroke-width=".4"/>
+    <g id="lace-card"></g>
+
+    <g class="fx d1" fill="none">
+      <path d="M72 653V282C72 168 166 116 240 84C314 116 408 168 408 282V653" stroke="#b08a52" stroke-width="1.2"/>
+      <path d="M80 653V284C80 175 169 126 240 95C311 126 400 175 400 284V653" stroke="#b08a52" stroke-width=".4"/>
+    </g>
+    <g class="fx d2"><g transform="translate(240 84)">
+      <g fill="#fdf8f3" stroke="#b08a52" stroke-width="1"><use href="#star" transform="scale(1.2)"/></g>
+      <circle r="2.6" fill="#3e4a34"/>
+    </g></g>
+
+    <g id="fl-card" filter="url(#wc)"></g>
+  </svg>
+
+  <section class="content">
+    <p class="bism fx d2">بسم الله الرحمن الرحيم</p>
+    <p class="caps intro fx d2">Avec la bénédiction<br>de leurs familles</p>
+    <h1 class="names fx d3"><span>Nouhaila</span><span class="amp">&amp;</span><span>Mehdi</span></h1>
+    <p class="lead fx d4">ont l’honneur de vous convier à la célébration de leur mariage</p>
+
+    <svg class="orn fx d4" viewBox="0 0 120 14" aria-hidden="true">
+      <path d="M0 7H42M78 7H120" stroke="#a88a55" stroke-width=".6"/>
+      <g fill="#7d8763"><path d="M57 7C53 4 49 4 46 6.5C49 9 53 9.5 57 7Z"/><path d="M63 7C67 4 71 4 74 6.5C71 9 67 9.5 63 7Z"/></g>
+      <circle cx="60" cy="7" r="2" fill="#a88a55"/><circle cx="40" cy="7" r="1" fill="#a88a55"/><circle cx="80" cy="7" r="1" fill="#a88a55"/>
+    </svg>
+
+    <div class="date fx d5">
+      <p class="caps side">Samedi</p>
+      <p class="day">28</p>
+      <p class="caps side">Novembre</p>
+    </div>
+    <p class="caps year fx d5">2026</p>
+    <p class="time fx d5">à partir de 16 heures</p>
+
+    <div class="venue fx d6">
+      <p class="place">Villa Dar Diafa</p>
+      <p class="addr">Tamaris, 20232 Oulad Azzouz</p>
+    </div>
+
+    <div class="duaa fx d6">
+      <p class="ar">بارك الله لكما وبارك عليكما وجمع بينكما في خير</p>
+      <p class="fr">Qu’Allah vous bénisse, répande Sa bénédiction sur vous et vous unisse dans le bien</p>
+    </div>
+  </section>
+</main>
+  </div>
+
+  <svg class="env pocket" viewBox="0 0 440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0L220 128L440 0" fill="none" stroke="#1e2016" stroke-opacity=".28" stroke-width="5" transform="translate(0 -2)"/>
+    <path d="M0 0L220 128L440 0V300H0Z" fill="url(#paper)" filter="url(#paperfx)"/>
+    <path d="M0 0L220 128L220 158L0 300Z" fill="#fff" opacity=".035"/>
+    <path d="M440 0L220 128L220 158L440 300Z" fill="#000" opacity=".06"/>
+    <path d="M1 1L220 129L439 1" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width=".8"/>
+    <path d="M0 300L220 158L440 300" fill="none" stroke="#2f3224" stroke-opacity=".35" stroke-width=".8"/>
+    <path d="M1 300L220 160L439 300" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width=".6"/>
+  </svg>
+
+  <div class="env flap">
+    <svg class="face" viewBox="0 0 440 174" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0H440L222 173L218 173Z" fill="url(#flapg)" filter="url(#paperfx)"/>
+      <path d="M.5 .5L219.5 172.2M439.5 .5L220.5 172.2" stroke="#fff" stroke-opacity=".12" stroke-width=".8"/>
+    </svg>
+    <svg class="face inner" viewBox="0 0 440 174" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 174H440L222 1L218 1Z" fill="url(#flapg)" filter="url(#paperfx)"/>
+    </svg>
+    <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <path id="blob"/>
+        <clipPath id="bc"><use href="#blob"/></clipPath>
+        <filter id="wb" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+        <filter id="wd" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation=".9"/></filter>
+        <filter id="ws" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation=".35"/></filter>
+        <!-- grayscale height map below is turned into lit wax -->
+        <filter id="waxlit" x="0" y="0" width="120" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feColorMatrix type="luminanceToAlpha" result="h0"/>
+          <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="4"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .1 0 0 0 0" result="n"/>
+          <feComposite in="h0" in2="n" operator="arithmetic" k2="1" k3="1" result="h"/>
+          <feDiffuseLighting in="h" surfaceScale="5" diffuseConstant="1.1" lighting-color="#fff" result="d"><feDistantLight azimuth="225" elevation="50"/></feDiffuseLighting>
+          <feSpecularLighting in="h" surfaceScale="5" specularConstant=".9" specularExponent="24" lighting-color="#fff4d6" result="s"><feDistantLight azimuth="225" elevation="50"/></feSpecularLighting>
+          <feFlood flood-color="#efc985"/>
+          <feBlend in2="d" mode="multiply" result="c"/>
+          <feComposite in="s" in2="c" operator="arithmetic" k2="1" k3="1"/>
+        </filter>
+      </defs>
+      <g clip-path="url(#bc)"><g filter="url(#waxlit)">
+        <rect width="120" height="120" fill="#000"/>
+        <use href="#blob" fill="#fff" filter="url(#wb)"/>
+        <g filter="url(#wd)">
+          <circle cx="60" cy="60" r="41.5" fill="none" stroke="#fff" stroke-width="3"/>
+          <circle cx="60" cy="60" r="39.5" fill="#6c6c6c"/>
+        </g>
+        <circle cx="60" cy="60" r="35" fill="none" stroke="#555" stroke-width=".6" filter="url(#ws)"/>
+        <g id="mono" fill="#fff" stroke="#fff" stroke-width=".6" filter="url(#wd)"><text font-family="'Pinyon Script',cursive" font-size="32">N</text><text font-family="'Cormorant Garamond',serif" font-style="italic" font-size="15" stroke-width=".3">&amp;</text><text font-family="'Pinyon Script',cursive" font-size="32">M</text></g>
+      </g></g>
+    </svg>
+  </div>
+
+  <p class="hint">Touchez l’enveloppe pour l’ouvrir</p>
+</div>
+<button class="replay" id="replay" type="button">Revoir</button>
+<a class="down" href="#compte">Découvrir ↓</a>
+<button class="music" id="musicBtn" type="button" aria-label="Musique : activer ou couper" aria-pressed="false"><i></i><i></i><i></i><i></i></button>
+<audio id="music" src="musique.mp3" loop preload="auto"></audio>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="orn" viewBox="0 0 120 14">
+    <path d="M0 7H42M78 7H120" stroke="#a88a55" stroke-width=".6"/>
+    <g fill="#7d8763"><path d="M57 7C53 4 49 4 46 6.5C49 9 53 9.5 57 7Z"/><path d="M63 7C67 4 71 4 74 6.5C71 9 67 9.5 63 7Z"/></g>
+    <circle cx="60" cy="7" r="2" fill="#a88a55"/><circle cx="40" cy="7" r="1" fill="#a88a55"/><circle cx="80" cy="7" r="1" fill="#a88a55"/>
+  </symbol>
+</svg>
+
+<div class="more">
+  <section class="sec" id="compte">
+    <p class="num">01</p>
+    <h2>Le compte à rebours</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><use href="#orn"/></svg>
+    <p class="sub" id="cd-lead">Plus que…</p>
+    <div class="clock">
+      <div><b id="cd-d">00</b><span>jours</span></div><i></i>
+      <div><b id="cd-h">00</b><span>heures</span></div><i></i>
+      <div><b id="cd-m">00</b><span>min</span></div><i></i>
+      <div><b id="cd-s">00</b><span>sec</span></div>
+    </div>
+    <a class="btn" id="cal" href="#">Ajouter au calendrier</a>
+  </section>
+
+  <section class="sec" id="programme">
+    <p class="num">02</p>
+    <h2>Le programme</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><use href="#orn"/></svg>
+    <ol class="tl">
+      <li><time>16h00</time><strong>Accueil</strong><span>Arrivée des invités &amp; rafraîchissements</span></li>
+      <li><time>17h00</time><strong>Cérémonie</strong><span>L’entrée des mariés</span></li>
+      <li><time>19h00</time><strong>Dîner</strong><span>Tous réunis autour de la table</span></li>
+      <li><time>22h00</time><strong>Pièce montée</strong><span>Le moment le plus doux</span></li>
+      <li><time>23h00</time><strong>Soirée dansante</strong><span>Musique &amp; danse jusqu’au bout de la nuit</span></li>
+    </ol>
+  </section>
+
+  <section class="sec" id="lieu">
+    <p class="num">03</p>
+    <h2>Le lieu</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><use href="#orn"/></svg>
+    <svg class="map" viewBox="0 0 300 170" role="img" aria-label="Plan indicatif : Villa Dar Diafa à Tamaris, au sud-ouest de Casablanca, au bord de l’océan Atlantique">
+      <rect width="300" height="170" fill="#f3eee2"/>
+      <path d="M0 0H232C214 26 186 48 152 66C112 88 64 112 0 146Z" fill="#dde2d3"/>
+      <g fill="none" stroke="#b4bda4" stroke-width=".7" stroke-linecap="round"><path d="M30 60q6-4 12 0t12 0"/><path d="M96 30q6-4 12 0t12 0"/><path d="M58 96q6-4 12 0t12 0"/><path d="M160 18q6-4 12 0t12 0"/><path d="M20 118q6-4 12 0t12 0"/></g>
+      <path d="M232 0C214 26 186 48 152 66C112 88 64 112 0 146" fill="none" stroke="#a88a55" stroke-width=".9"/>
+      <path d="M300 34C252 60 210 86 166 104C122 122 74 142 26 170" fill="none" stroke="#d9c9a4" stroke-width="3"/>
+      <path d="M300 34C252 60 210 86 166 104C122 122 74 142 26 170" fill="none" stroke="#fbf8f1" stroke-width="1"/>
+      <path d="M300 92C262 108 230 132 204 170" fill="none" stroke="#e2d6ba" stroke-width="2"/>
+      <text x="52" y="40" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#7f8a6c">Océan Atlantique</text>
+      <text x="236" y="26" font-family="Cinzel" font-size="7" letter-spacing="1.2" fill="#55594a">CASABLANCA →</text>
+      <circle cx="200" cy="90" r="1.6" fill="#a88a55"/><text x="206" y="93" font-family="Cinzel" font-size="6.5" letter-spacing="1" fill="#55594a">DAR BOUAZZA</text>
+      <g transform="translate(118 118)"><ellipse cy="1" rx="7" ry="2.2" fill="#3e4a34" opacity=".18"/><path d="M0 0C-3-6-9-10-9-16A9 9 0 0 1 9-16C9-10 3-6 0 0Z" fill="#3e4a34"/><circle cy="-16" r="3.6" fill="#d8bd85"/></g>
+      <text x="132" y="128" font-family="Pinyon Script" font-size="15" fill="#3e4a34">Villa Dar Diafa</text>
+      <text x="134" y="139" font-family="Cinzel" font-size="6.5" letter-spacing="1" fill="#55594a">TAMARIS</text>
+      <g transform="translate(276 146)" fill="#a88a55"><path d="M0-11L3 0H-3Z"/><text y="10" text-anchor="middle" font-family="Cinzel" font-size="7">N</text></g>
+    </svg>
+    <p class="place2">VILLA DAR DIAFA</p>
+    <p class="sub">Tamaris, 20232 Oulad Azzouz</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Villa%20Dar%20Diafa%20Tamaris%20Oulad%20Azzouz" target="_blank" rel="noopener">Ouvrir dans Maps</a>
+    <a class="btn" href="https://waze.com/ul?q=Villa%20Dar%20Diafa%20Tamaris&amp;navigate=yes" target="_blank" rel="noopener">Waze</a>
+  </section>
+
+  <section class="sec" id="rsvp">
+    <p class="num">04</p>
+    <h2>Votre réponse</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><use href="#orn"/></svg>
+    <p class="sub">Merci de nous confirmer votre présence</p>
+    <form class="form" id="rsvpForm">
+      <label>Nom(s)<input name="nom" required maxlength="120" autocomplete="name"></label>
+      <fieldset>
+        <legend>Présence</legend>
+        <div class="choice">
+          <label><input type="radio" name="presence" value="Avec joie, je serai présent(e)" required><span>Avec joie</span></label>
+          <label><input type="radio" name="presence" value="À regret, je ne pourrai pas venir"><span>À regret</span></label>
+        </div>
+      </fieldset>
+      <label>Nombre de personnes<select name="nombre"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+      <label>Un mot pour les mariés<textarea name="message" maxlength="1000" placeholder="Facultatif"></textarea></label>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <button class="btn" type="submit">Envoyer ma réponse</button>
+    </form>
+    <p class="thanks" id="thanks" hidden></p>
+  </section>
+
+  <p class="foot">Nouhaila &amp; Mehdi<small>28 · 11 · 2026</small></p>
+</div>
+<script>
+(function(){
+  /* seeded watercolor florals, identical on every load */
+  var seed=11;function rnd(){seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+  function rr(a,b){return a+(b-a)*rnd()}
+  function f(n){return n.toFixed(1)}
+  /* separate RNG for petal detail so the bouquet layout stays the same */
+  var s2=7;function r2(a,b){s2=s2+0x6D2B79F5|0;var t=Math.imul(s2^s2>>>15,1|s2);t=t+Math.imul(t^t>>>7,61|t)^t;return a+(b-a)*(((t^t>>>14)>>>0)/4294967296)}
+  function petal(l,w){var k=r2(-.12,.12);return 'M0 0C'+f(-w)+' '+f(-l*.25)+' '+f(-w*(.95+k))+' '+f(-l*.85)+' '+f(-w*.35)+' '+f(-l*r2(.95,1))+'Q'+f(-w*.18)+' '+f(-l*r2(.9,1.03))+' 0 '+f(-l*r2(.9,.97))+'Q'+f(w*.18)+' '+f(-l*r2(.9,1.03))+' '+f(w*.35)+' '+f(-l*r2(.95,1))+'C'+f(w*(.95-k))+' '+f(-l*.85)+' '+f(w)+' '+f(-l*.25)+' 0 0Z'}
+  function half(l,w,s){return 'M0 0Q'+f(s*w*.08)+' '+f(-l*.5)+' 0 '+f(-l*.92)+'Q'+f(s*w*.18)+' '+f(-l*.98)+' '+f(s*w*.35)+' '+f(-l*.98)+'C'+f(s*w*.95)+' '+f(-l*.85)+' '+f(s*w)+' '+f(-l*.25)+' 0 0Z'}
+  function bloom(x,y,r,pal,layers){
+    var h='';
+    layers.forEach(function(L,li){var n=L[1],off=rr(0,360),g='';
+      for(var i=0;i<n;i++){var a=off+i*360/n+rr(-10,10),l=r*L[0]*rr(.88,1.08),w=l*rr(.5,.68),p=petal(l,w),cup=r2(-.5,.5)>0?1:-1;
+        g+='<g transform="rotate('+f(a)+')"><path d="'+p+'" fill="#4a3d26" fill-opacity=".13" transform="translate(.5 1.3) scale(1.04)"/>'+
+          '<path d="'+p+'" fill="url(#'+pal+')" stroke="#9d8a68" stroke-opacity=".3" stroke-width=".4"/>'+
+          '<path d="'+half(l,w,cup)+'" fill="#6b5838" fill-opacity="'+r2(.05,.11).toFixed(2)+'"/>'+
+          '<path d="'+p+'" fill="url(#pgl)"/><path d="'+p+'" fill="url(#pbs)"/>'+
+          '<path d="M0 '+f(-l*.08)+'Q'+f(w*.1)+' '+f(-l*.45)+' 0 '+f(-l*.8)+'M'+f(-w*.3)+' '+f(-l*.15)+'Q'+f(-w*.45)+' '+f(-l*.5)+' '+f(-w*.38)+' '+f(-l*.82)+'M'+f(w*.3)+' '+f(-l*.15)+'Q'+f(w*.45)+' '+f(-l*.5)+' '+f(w*.38)+' '+f(-l*.82)+'" fill="none" stroke="#7a6646" stroke-opacity=".06" stroke-width=".4"/></g>'}
+      h+=g});
+    h+='<circle r="'+f(r*.42)+'" fill="url(#core)"/>';
+    for(var k=0;k<12;k++){var a2=rr(0,6.28),d=rr(0,r*.14);h+='<circle cx="'+f(Math.cos(a2)*d)+'" cy="'+f(Math.sin(a2)*d)+'" r="'+f(rr(.8,1.6)*.7)+'" fill="#b88c45" stroke="#7d5d2a" stroke-width=".3"/>'}
+    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h+'</g>'}
+  function peony(x,y,r,pal){return bloom(x,y,r,pal,[[1,9],[.8,8],[.6,7],[.4,6],[.22,5]])}
+  /* rose: open outer petals plus a tight cupped spiral core */
+  function rose(x,y,r,pal){var h=bloom(0,0,r,pal,[[1,5],[.78,5],[.55,4],[.34,3]]),c='<circle r="'+f(r*.36)+'" fill="url(#'+pal+')"/>';
+    for(var j=0;j<6;j++){var q=r*(.4-j*.055),a=j*137.5+r2(-15,15),cp='M'+f(-q)+' 0A'+f(q)+' '+f(q*.9)+' 0 0 0 '+f(q)+' 0Q0 '+f(q*r2(.1,.3))+' '+f(-q)+' 0Z';
+      c+='<g transform="rotate('+f(a)+') translate(0 '+f(-q*.18)+')"><path d="'+cp+'" fill="#4a3d26" fill-opacity=".12" transform="translate(0 1)"/><path d="'+cp+'" fill="url(#'+pal+')"/><path d="'+cp+'" fill="url(#pgl)" opacity=".6"/>'+
+        '<path d="M'+f(-q*.95)+' '+f(q*.12)+'A'+f(q)+' '+f(q*.9)+' 0 0 0 '+f(q*.95)+' '+f(q*.12)+'" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width=".5"/></g>'}
+    c+='<circle r="'+f(r*.36)+'" fill="url(#rcore)"/>';
+    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h.replace(/<circle[^>]*url\(#core\)[^>]*\/>.*<\/g>$/,'</g>').replace(/<\/g>$/,c+'</g>')+'</g>'}
+  function leaf(x,y,a,l,w,gold){var d='M0 0C'+f(w)+' '+f(-l*.3)+' '+f(w*.6)+' '+f(-l*.8)+' 0 '+f(-l)+'C'+f(-w*.6)+' '+f(-l*.8)+' '+f(-w)+' '+f(-l*.3)+' 0 0Z',v='';
+    if(gold)return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')"><path d="'+d+'" fill="#e9cf9c" fill-opacity=".35" stroke="#b08a52" stroke-width=".8"/><path d="M0 0L0 '+f(-l*.9)+'" stroke="#b08a52" stroke-opacity=".6" stroke-width=".6"/></g>';
+    for(var t=.18;t<.8;t+=.14)v+='M0 '+f(-l*t)+'Q'+f(w*.35)+' '+f(-l*(t+.08))+' '+f(w*.62)+' '+f(-l*(t+.16))+'M0 '+f(-l*t)+'Q'+f(-w*.35)+' '+f(-l*(t+.08))+' '+f(-w*.62)+' '+f(-l*(t+.16));
+    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')"><path d="'+d+'" fill="#2f3520" fill-opacity=".14" transform="translate(.6 1.2)"/><path d="'+d+'" fill="url(#leaf)"/>'+
+      '<path d="M0 0C'+f(w)+' '+f(-l*.3)+' '+f(w*.6)+' '+f(-l*.8)+' 0 '+f(-l)+'Q'+f(w*.06)+' '+f(-l*.5)+' 0 0Z" fill="#1f2614" fill-opacity=".16"/>'+
+      '<path d="'+d+'" fill="url(#pgl)" opacity=".45"/>'+
+      '<path d="M0 0Q'+f(w*.06)+' '+f(-l*.5)+' 0 '+f(-l*.95)+'" fill="none" stroke="#dfe5cf" stroke-opacity=".55" stroke-width=".6"/><path d="'+v+'" fill="none" stroke="#dfe5cf" stroke-opacity=".25" stroke-width=".35"/></g>'}
+  function euc(x,y,a,l){var h='<path d="M0 0Q8 '+f(-l*.5)+' 0 '+f(-l)+'" fill="none" stroke="#86a096" stroke-width="1.2"/>';
+    for(var t=.12,s=1;t<1;t+=.15,s=-s){var rx=8*(1.15-t*.5);h+='<ellipse cx="'+f(s*rx*.9+4*Math.sin(Math.PI*t))+'" cy="'+f(-l*t)+'" rx="'+f(rx)+'" ry="'+f(rx*.85)+'" fill="url(#euc)" fill-opacity=".9"/>'}
+    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')">'+h+'</g>'}
+  function blossom(x,y){var h='',r=rr(.8,1.2),o=rr(0,72);for(var i=0;i<5;i++)h+='<ellipse cy="'+f(-4*r)+'" rx="'+f(2.4*r)+'" ry="'+f(4.2*r)+'" transform="rotate('+f(o+i*72)+')" fill="#fffdf7" stroke="#c4b493" stroke-width=".5"/>';
+    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h+'<circle r="'+f(1.6*r)+'" fill="#d2b25c"/></g>'}
+  function olive(x,y,a,l){var h='<path d="M0 0Q-6 '+f(-l*.5)+' 2 '+f(-l)+'" fill="none" stroke="#6f6a4f" stroke-width="1.1"/>',t,s=1;
+    for(t=.1;t<.98;t+=.11,s=-s){var ll=rr(20,30)*(1.1-t*.4),d='M0 0C2.6 '+f(-ll*.3)+' 2 '+f(-ll*.8)+' 0 '+f(-ll)+'C-2 '+f(-ll*.8)+' -2.6 '+f(-ll*.3)+' 0 0Z';
+      h+='<path d="'+d+'" fill="url(#oliv)" transform="translate('+f(-3*Math.sin(Math.PI*t))+' '+f(-l*t)+') rotate('+f(s*rr(30,48))+')"/>'}
+    for(t=0;t<2;t++)h+='<ellipse cx="'+f(rr(-8,8))+'" cy="'+f(-l*rr(.35,.75))+'" rx="3.4" ry="4.8" fill="#3f472c" transform="rotate('+f(rr(-30,30))+')"/>';
+    h+='<path d="M0 '+f(-l)+'C3 '+f(-l-8)+' 2 '+f(-l-18)+' 0 '+f(-l-22)+'C-2 '+f(-l-18)+' -3 '+f(-l-8)+' 0 '+f(-l)+'Z" fill="url(#oliv)"/>';
+    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')">'+h+'</g>'}
+  function cluster(x,y,s,rot,mx){
+    var h='',i,a,d;
+    for(i=0;i<4;i++)h+=olive(rr(-5,15),rr(-5,15),i==0?rr(78,92):i==1?rr(112,128):rr(150,188),i==0?rr(110,130):i==1?rr(70,90):rr(110,150));
+    for(i=0;i<2;i++)h+=euc(rr(0,15),rr(0,15),rr(95,175),rr(90,120));
+    for(i=0;i<5;i++){a=rr(70,200);h+=leaf(rr(0,30),rr(0,30),a,rr(42,62),rr(12,17))}
+    for(i=0;i<3;i++)h+=leaf(rr(10,40),rr(10,40),rr(85,185),rr(44,58),rr(12,16),true);
+    for(i=0;i<14;i++){a=rr(.2,2.6);d=rr(50,100);h+=blossom(Math.cos(a)*d,Math.sin(a)*d)}
+    h+=peony(18,62,26,'champ')+rose(60,-4,17,'white')+peony(0,0,46,'white')+rose(54,32,28,'ivory')+rose(86,52,13,'champ')+rose(36,90,12,'white');
+    return '<g transform="translate('+x+' '+y+') scale('+(s*mx)+' '+s+') rotate('+rot+')">'+h+'</g>'}
+  document.getElementById('fl-card').innerHTML=
+    cluster(30,32,1.05,0,1)+cluster(456,28,.6,0,-1)+cluster(462,656,.85,180,1)+cluster(24,652,.55,180,-1);
+
+  /* wax seal: irregular poured outline + engraved olive wreath */
+  var pts=[],N=56,i,a,r,d='';
+  for(i=0;i<N;i++){a=i/N*Math.PI*2;r=52+1.8*Math.sin(3*a+1)+1.3*Math.sin(5*a+2.2)+.9*Math.sin(9*a+.4)+(Math.abs(a-.9)<.25?3:0)+(Math.abs(a-4)<.2?2.4:0);pts.push([60+r*Math.cos(a),60+r*Math.sin(a)])}
+  for(i=0;i<N;i++){var p=pts[i],q=pts[(i+1)%N],m=[(p[0]+q[0])/2,(p[1]+q[1])/2];d+=(i?'Q':'M'+f((pts[N-1][0]+p[0])/2)+' '+f((pts[N-1][1]+p[1])/2)+'Q')+f(p[0])+' '+f(p[1])+' '+f(m[0])+' '+f(m[1])}
+  document.getElementById('blob').setAttribute('d',d+'Z');
+  /* centre the initials on their visible ink, not their advance boxes */
+  document.fonts.ready.then(function(){
+    var c=document.createElement('canvas').getContext('2d'),ts=document.querySelectorAll('#mono text'),gap=3,w=-gap,m=[];
+    ts.forEach(function(t){c.font=(t.getAttribute('font-style')||'')+' '+t.getAttribute('font-size')+'px '+t.getAttribute('font-family');
+      var r=c.measureText(t.textContent);m.push(r);w+=r.actualBoundingBoxLeft+r.actualBoundingBoxRight+gap});
+    var x=60-w/2;
+    ts.forEach(function(t,j){var r=m[j];t.setAttribute('x',f(x+r.actualBoundingBoxLeft));t.setAttribute('y',f(60+(r.actualBoundingBoxAscent-r.actualBoundingBoxDescent)/2));x+=r.actualBoundingBoxLeft+r.actualBoundingBoxRight+gap});
+    var s=Math.min(1,62/w);document.getElementById('mono').setAttribute('transform','translate(60 60) scale('+s.toFixed(3)+') translate(-60 -60)')});
+
+  /* fine scalloped lace edging around the card */
+  function edge(x,y,a,L){var n=Math.round(L/7),w=L/n,r=w/2,p='M0 0',d='';
+    for(var i=0;i<n;i++){p+='a'+f(r)+' '+f(r)+' 0 0 1 '+f(w)+' 0';d+='<circle cx="'+f(i*w+r)+'" cy="-1.6" r=".55"/>'}
+    return '<g transform="translate('+x+' '+y+') rotate('+a+')"><path d="'+p+'" fill="none"/>'+d+'</g>'}
+  document.getElementById('lace-card').innerHTML='<g stroke="#b08a52" stroke-width=".5" fill="#b08a52" stroke-opacity=".8">'+
+    edge(10,9,0,460)+edge(471,10,90,652)+edge(470,663,180,460)+edge(9,662,270,652)+'</g>';
+})();
+</script>
+<script>
+(function(){
+  var b=document.body,st=document.getElementById('stage'),t=[],busy=false;
+  var EMAIL='nouhailamoukaddime@gmail.com';
+  var subj='RSVP - Mariage Nouhaila & Mehdi';
+  function mail(body,extra){return 'mailto:'+EMAIL+'?subject='+encodeURIComponent(subj+(extra||''))+'&body='+encodeURIComponent(body)}
+  if(/[?&]export/.test(location.search)){b.classList.add('export');return}
+
+  /* music: starts on the guest's tap; button hides itself if musique.mp3 is missing */
+  var m=document.getElementById('music'),mb=document.getElementById('musicBtn'),fade;
+  function setOn(on){mb.classList.toggle('on',on);mb.setAttribute('aria-pressed',on)}
+  function startMusic(){m.volume=0;m.play().then(function(){setOn(true);clearInterval(fade);fade=setInterval(function(){m.volume=Math.min(.55,m.volume+.03);if(m.volume>=.55)clearInterval(fade)},120)}).catch(function(){})}
+  m.addEventListener('error',function(){mb.style.display='none'});
+  mb.addEventListener('click',function(){if(m.paused)startMusic();else{m.pause();setOn(false)}});
+
+  /* countdown to 28 Nov 2026, 16:00 Morocco time (UTC+1) */
+  var T=Date.parse('2026-11-28T16:00:00+01:00');
+  function p2(n){return n<10?'0'+n:''+n}
+  function tick(){var s=Math.max(0,Math.floor((T-Date.now())/1000));
+    document.getElementById('cd-d').textContent=p2(Math.floor(s/86400));
+    document.getElementById('cd-h').textContent=p2(Math.floor(s%86400/3600));
+    document.getElementById('cd-m').textContent=p2(Math.floor(s%3600/60));
+    document.getElementById('cd-s').textContent=p2(s%60);
+    if(!s)document.getElementById('cd-lead').textContent='C’est le grand jour !'}
+  tick();setInterval(tick,1000);
+  var cal=document.getElementById('cal');
+  cal.href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Mariage Nouhaila & Mehdi')+'&dates=20261128T150000Z/20261129T000000Z&location='+encodeURIComponent('Villa Dar Diafa, Tamaris, 20232 Oulad Azzouz');
+  cal.target='_blank';cal.rel='noopener';
+
+  /* RSVP sent directly by FormSubmit (formsubmit.co); falls back to a pre-filled e-mail */
+  var fm=document.getElementById('rsvpForm'),th=document.getElementById('thanks');
+  fm.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(fm),nom=d.get('nom').trim(),btn=fm.querySelector('[type=submit]');
+    if(d.get('_honey'))return;
+    var txt='Nom(s) : '+nom+'\nPrésence : '+d.get('presence')+'\nNombre de personnes : '+d.get('nombre')+'\n\nMessage :\n'+d.get('message');
+    btn.disabled=true;btn.textContent='Envoi…';
+    fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({_subject:subj+' - '+nom,_template:'table','Nom(s)':nom,'Présence':d.get('presence'),'Nombre de personnes':d.get('nombre'),'Message':d.get('message')||'—'})})
+    .then(function(r){return r.json()}).then(function(j){if(String(j.success)!=='true')throw 0;
+      fm.hidden=true;th.textContent=d.get('presence').indexOf('joie')>0?'Merci '+nom+' ! Votre réponse nous est bien parvenue. Nous avons hâte de célébrer avec vous.':'Merci '+nom+' pour votre réponse. Vous serez dans nos pensées.';th.hidden=false})
+    .catch(function(){btn.disabled=false;btn.textContent='Envoyer ma réponse';location.href=mail(txt,' - '+nom);
+      th.textContent='Votre messagerie va s’ouvrir — il ne reste plus qu’à appuyer sur « Envoyer ».';th.hidden=false})});
+  function fit(){st.style.zoom=Math.min(innerWidth/520,innerHeight/860)}
+  fit();addEventListener('resize',fit);
+  function play(){
+    if(busy||b.classList.contains('open'))return;busy=true;
+    b.classList.add('open');startMusic();
+    t.push(setTimeout(function(){b.classList.add('rise')},1900));
+    t.push(setTimeout(function(){b.classList.add('final')},3400));
+    t.push(setTimeout(function(){b.classList.add('reveal')},4400));
+    t.push(setTimeout(function(){b.classList.add('done');busy=false},7700));
+  }
+  function reset(){scrollTo(0,0);t.forEach(clearTimeout);t=[];busy=false;b.classList.remove('open','rise','final','reveal','done')}
+  st.addEventListener('click',play);
+  st.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
+  document.getElementById('replay').addEventListener('click',reset);
+  if(/[?&]open/.test(location.search))play();
+})();
+</script>
+</body>
+</html>
