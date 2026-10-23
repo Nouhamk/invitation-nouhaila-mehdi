@@ -137,7 +137,6 @@ body.done{overflow:auto;background-attachment:fixed}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#4a3f28" flood-opacity=".2"/></filter>
     <filter id="paperfx" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency=".42" numOctaves="3" seed="8"/>
       <feGaussianBlur stdDeviation=".45" result="fine"/>
@@ -146,17 +145,7 @@ body.done{overflow:auto;background-attachment:fixed}
       <feBlend in="relief" in2="SourceGraphic" mode="overlay" result="p"/>
       <feComposite in="p" in2="SourceGraphic" operator="in"/>
     </filter>
-    <radialGradient id="core"><stop offset="0" stop-color="#8a7348" stop-opacity=".55"/><stop offset="1" stop-color="#8a7348" stop-opacity="0"/></radialGradient>
-    <linearGradient id="white" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#cbbfa6"/><stop offset=".5" stop-color="#efe9dc"/><stop offset="1" stop-color="#fffefa"/></linearGradient>
-    <linearGradient id="ivory" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#bfae8c"/><stop offset=".55" stop-color="#ece2cc"/><stop offset="1" stop-color="#fbf6ea"/></linearGradient>
-    <linearGradient id="champ" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#b8955e"/><stop offset=".55" stop-color="#e2cba0"/><stop offset="1" stop-color="#f6ecd6"/></linearGradient>
-    <linearGradient id="leaf" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#56603f"/><stop offset="1" stop-color="#9fa883"/></linearGradient>
-    <linearGradient id="oliv" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#5f6a48"/><stop offset="1" stop-color="#b3ba9c"/></linearGradient>
-    <linearGradient id="euc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c3cbbb"/><stop offset="1" stop-color="#7f8f80"/></linearGradient>
     <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".5" stop-color="#000" stop-opacity="0"/></linearGradient>
-    <radialGradient id="pgl" cx=".5" cy=".18" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-    <linearGradient id="pbs" x1=".5" y1="1" x2=".5" y2=".45"><stop offset="0" stop-color="#5e4b2c" stop-opacity=".45"/><stop offset="1" stop-color="#5e4b2c" stop-opacity="0"/></linearGradient>
-    <radialGradient id="rcore" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#6e5530" stop-opacity=".3"/><stop offset=".6" stop-color="#9a7f52" stop-opacity=".1"/><stop offset="1" stop-color="#9a7f52" stop-opacity="0"/></radialGradient>
     <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5f634e"/><stop offset="1" stop-color="#555946"/></linearGradient>
     <linearGradient id="flapg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a5e49"/><stop offset="1" stop-color="#5f634e"/></linearGradient>
     <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f6f3a"/><stop offset=".28" stop-color="#e6cf96"/><stop offset=".48" stop-color="#b18c50"/><stop offset=".7" stop-color="#f3e2b3"/><stop offset="1" stop-color="#9a7a43"/></linearGradient>
@@ -399,64 +388,13 @@ body.done{overflow:auto;background-attachment:fixed}
 </div>
 <script>
 (function(){
-  /* seeded watercolor florals, identical on every load */
-  var seed=11;function rnd(){seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
-  function rr(a,b){return a+(b-a)*rnd()}
   function f(n){return n.toFixed(1)}
-  /* separate RNG for petal detail so the bouquet layout stays the same */
-  var s2=7;function r2(a,b){s2=s2+0x6D2B79F5|0;var t=Math.imul(s2^s2>>>15,1|s2);t=t+Math.imul(t^t>>>7,61|t)^t;return a+(b-a)*(((t^t>>>14)>>>0)/4294967296)}
-  function petal(l,w){var k=r2(-.12,.12);return 'M0 0C'+f(-w)+' '+f(-l*.25)+' '+f(-w*(.95+k))+' '+f(-l*.85)+' '+f(-w*.35)+' '+f(-l*r2(.95,1))+'Q'+f(-w*.18)+' '+f(-l*r2(.9,1.03))+' 0 '+f(-l*r2(.9,.97))+'Q'+f(w*.18)+' '+f(-l*r2(.9,1.03))+' '+f(w*.35)+' '+f(-l*r2(.95,1))+'C'+f(w*(.95-k))+' '+f(-l*.85)+' '+f(w)+' '+f(-l*.25)+' 0 0Z'}
-  function half(l,w,s){return 'M0 0Q'+f(s*w*.08)+' '+f(-l*.5)+' 0 '+f(-l*.92)+'Q'+f(s*w*.18)+' '+f(-l*.98)+' '+f(s*w*.35)+' '+f(-l*.98)+'C'+f(s*w*.95)+' '+f(-l*.85)+' '+f(s*w)+' '+f(-l*.25)+' 0 0Z'}
-  function bloom(x,y,r,pal,layers){
-    var h='';
-    layers.forEach(function(L,li){var n=L[1],off=rr(0,360),g='';
-      for(var i=0;i<n;i++){var a=off+i*360/n+rr(-10,10),l=r*L[0]*rr(.88,1.08),w=l*rr(.5,.68),p=petal(l,w),cup=r2(-.5,.5)>0?1:-1;
-        g+='<g transform="rotate('+f(a)+')"><path d="'+p+'" fill="#4a3d26" fill-opacity=".13" transform="translate(.5 1.3) scale(1.04)"/>'+
-          '<path d="'+p+'" fill="url(#'+pal+')" stroke="#9d8a68" stroke-opacity=".3" stroke-width=".4"/>'+
-          '<path d="'+half(l,w,cup)+'" fill="#6b5838" fill-opacity="'+r2(.05,.11).toFixed(2)+'"/>'+
-          '<path d="'+p+'" fill="url(#pgl)"/><path d="'+p+'" fill="url(#pbs)"/>'+
-          '<path d="M0 '+f(-l*.08)+'Q'+f(w*.1)+' '+f(-l*.45)+' 0 '+f(-l*.8)+'M'+f(-w*.3)+' '+f(-l*.15)+'Q'+f(-w*.45)+' '+f(-l*.5)+' '+f(-w*.38)+' '+f(-l*.82)+'M'+f(w*.3)+' '+f(-l*.15)+'Q'+f(w*.45)+' '+f(-l*.5)+' '+f(w*.38)+' '+f(-l*.82)+'" fill="none" stroke="#7a6646" stroke-opacity=".06" stroke-width=".4"/></g>'}
-      h+=g});
-    h+='<circle r="'+f(r*.42)+'" fill="url(#core)"/>';
-    for(var k=0;k<12;k++){var a2=rr(0,6.28),d=rr(0,r*.14);h+='<circle cx="'+f(Math.cos(a2)*d)+'" cy="'+f(Math.sin(a2)*d)+'" r="'+f(rr(.8,1.6)*.7)+'" fill="#b88c45" stroke="#7d5d2a" stroke-width=".3"/>'}
-    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h+'</g>'}
-  function peony(x,y,r,pal){return bloom(x,y,r,pal,[[1,9],[.8,8],[.6,7],[.4,6],[.22,5]])}
-  /* rose: open outer petals plus a tight cupped spiral core */
-  function rose(x,y,r,pal){var h=bloom(0,0,r,pal,[[1,5],[.78,5],[.55,4],[.34,3]]),c='<circle r="'+f(r*.36)+'" fill="url(#'+pal+')"/>';
-    for(var j=0;j<6;j++){var q=r*(.4-j*.055),a=j*137.5+r2(-15,15),cp='M'+f(-q)+' 0A'+f(q)+' '+f(q*.9)+' 0 0 0 '+f(q)+' 0Q0 '+f(q*r2(.1,.3))+' '+f(-q)+' 0Z';
-      c+='<g transform="rotate('+f(a)+') translate(0 '+f(-q*.18)+')"><path d="'+cp+'" fill="#4a3d26" fill-opacity=".12" transform="translate(0 1)"/><path d="'+cp+'" fill="url(#'+pal+')"/><path d="'+cp+'" fill="url(#pgl)" opacity=".6"/>'+
-        '<path d="M'+f(-q*.95)+' '+f(q*.12)+'A'+f(q)+' '+f(q*.9)+' 0 0 0 '+f(q*.95)+' '+f(q*.12)+'" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width=".5"/></g>'}
-    c+='<circle r="'+f(r*.36)+'" fill="url(#rcore)"/>';
-    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h.replace(/<circle[^>]*url\(#core\)[^>]*\/>.*<\/g>$/,'</g>').replace(/<\/g>$/,c+'</g>')+'</g>'}
-  function leaf(x,y,a,l,w,gold){var d='M0 0C'+f(w)+' '+f(-l*.3)+' '+f(w*.6)+' '+f(-l*.8)+' 0 '+f(-l)+'C'+f(-w*.6)+' '+f(-l*.8)+' '+f(-w)+' '+f(-l*.3)+' 0 0Z',v='';
-    if(gold)return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')"><path d="'+d+'" fill="#e9cf9c" fill-opacity=".35" stroke="#b08a52" stroke-width=".8"/><path d="M0 0L0 '+f(-l*.9)+'" stroke="#b08a52" stroke-opacity=".6" stroke-width=".6"/></g>';
-    for(var t=.18;t<.8;t+=.14)v+='M0 '+f(-l*t)+'Q'+f(w*.35)+' '+f(-l*(t+.08))+' '+f(w*.62)+' '+f(-l*(t+.16))+'M0 '+f(-l*t)+'Q'+f(-w*.35)+' '+f(-l*(t+.08))+' '+f(-w*.62)+' '+f(-l*(t+.16));
-    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')"><path d="'+d+'" fill="#2f3520" fill-opacity=".14" transform="translate(.6 1.2)"/><path d="'+d+'" fill="url(#leaf)"/>'+
-      '<path d="M0 0C'+f(w)+' '+f(-l*.3)+' '+f(w*.6)+' '+f(-l*.8)+' 0 '+f(-l)+'Q'+f(w*.06)+' '+f(-l*.5)+' 0 0Z" fill="#1f2614" fill-opacity=".16"/>'+
-      '<path d="'+d+'" fill="url(#pgl)" opacity=".45"/>'+
-      '<path d="M0 0Q'+f(w*.06)+' '+f(-l*.5)+' 0 '+f(-l*.95)+'" fill="none" stroke="#dfe5cf" stroke-opacity=".55" stroke-width=".6"/><path d="'+v+'" fill="none" stroke="#dfe5cf" stroke-opacity=".25" stroke-width=".35"/></g>'}
-  function euc(x,y,a,l){var h='<path d="M0 0Q8 '+f(-l*.5)+' 0 '+f(-l)+'" fill="none" stroke="#86a096" stroke-width="1.2"/>';
-    for(var t=.12,s=1;t<1;t+=.15,s=-s){var rx=8*(1.15-t*.5);h+='<ellipse cx="'+f(s*rx*.9+4*Math.sin(Math.PI*t))+'" cy="'+f(-l*t)+'" rx="'+f(rx)+'" ry="'+f(rx*.85)+'" fill="url(#euc)" fill-opacity=".9"/>'}
-    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')">'+h+'</g>'}
-  function blossom(x,y){var h='',r=rr(.8,1.2),o=rr(0,72);for(var i=0;i<5;i++)h+='<ellipse cy="'+f(-4*r)+'" rx="'+f(2.4*r)+'" ry="'+f(4.2*r)+'" transform="rotate('+f(o+i*72)+')" fill="#fffdf7" stroke="#c4b493" stroke-width=".5"/>';
-    return '<g transform="translate('+f(x)+' '+f(y)+')">'+h+'<circle r="'+f(1.6*r)+'" fill="#d2b25c"/></g>'}
-  function olive(x,y,a,l){var h='<path d="M0 0Q-6 '+f(-l*.5)+' 2 '+f(-l)+'" fill="none" stroke="#6f6a4f" stroke-width="1.1"/>',t,s=1;
-    for(t=.1;t<.98;t+=.11,s=-s){var ll=rr(20,30)*(1.1-t*.4),d='M0 0C2.6 '+f(-ll*.3)+' 2 '+f(-ll*.8)+' 0 '+f(-ll)+'C-2 '+f(-ll*.8)+' -2.6 '+f(-ll*.3)+' 0 0Z';
-      h+='<path d="'+d+'" fill="url(#oliv)" transform="translate('+f(-3*Math.sin(Math.PI*t))+' '+f(-l*t)+') rotate('+f(s*rr(30,48))+')"/>'}
-    for(t=0;t<2;t++)h+='<ellipse cx="'+f(rr(-8,8))+'" cy="'+f(-l*rr(.35,.75))+'" rx="3.4" ry="4.8" fill="#3f472c" transform="rotate('+f(rr(-30,30))+')"/>';
-    h+='<path d="M0 '+f(-l)+'C3 '+f(-l-8)+' 2 '+f(-l-18)+' 0 '+f(-l-22)+'C-2 '+f(-l-18)+' -3 '+f(-l-8)+' 0 '+f(-l)+'Z" fill="url(#oliv)"/>';
-    return '<g transform="translate('+f(x)+' '+f(y)+') rotate('+f(a)+')">'+h+'</g>'}
-  function cluster(x,y,s,rot,mx){
-    var h='',i,a,d;
-    for(i=0;i<4;i++)h+=olive(rr(-5,15),rr(-5,15),i==0?rr(78,92):i==1?rr(112,128):rr(150,188),i==0?rr(110,130):i==1?rr(70,90):rr(110,150));
-    for(i=0;i<2;i++)h+=euc(rr(0,15),rr(0,15),rr(95,175),rr(90,120));
-    for(i=0;i<5;i++){a=rr(70,200);h+=leaf(rr(0,30),rr(0,30),a,rr(42,62),rr(12,17))}
-    for(i=0;i<3;i++)h+=leaf(rr(10,40),rr(10,40),rr(85,185),rr(44,58),rr(12,16),true);
-    for(i=0;i<14;i++){a=rr(.2,2.6);d=rr(50,100);h+=blossom(Math.cos(a)*d,Math.sin(a)*d)}
-    h+=peony(18,62,26,'champ')+rose(60,-4,17,'white')+peony(0,0,46,'white')+rose(54,32,28,'ivory')+rose(86,52,13,'champ')+rose(36,90,12,'white');
-    return '<g transform="translate('+x+' '+y+') scale('+(s*mx)+' '+s+') rotate('+rot+')">'+h+'</g>'}
+  /* Redouté botanical plates (public domain); anchor = stem base, image grows away from it */
+  var FL={sauvage:[745,1000,.5],alba:[761,1000,.54],mousse:[586,1000,.5]};
+  function plate(n,x,y,a,h,flip){var d=FL[n],w=h*d[0]/d[1];
+    return '<g transform="translate('+x+' '+y+') rotate('+a+')'+(flip?' scale(-1 1)':'')+'"><image href="fleurs/'+({sauvage:'rose-sauvage',alba:'rosa-alba',mousse:'rose-mousseuse'})[n]+'.webp" x="'+f(-w*d[2])+'" y="'+f(-h)+'" width="'+f(w)+'" height="'+f(h)+'"/></g>'}
   document.getElementById('fl-card').innerHTML=
-    cluster(30,32,1.05,0,1)+cluster(456,28,.6,0,-1)+cluster(462,656,.85,180,1)+cluster(24,652,.55,180,-1);
+    plate('mousse',500,-20,-140,230,true)+plate('mousse',-20,700,35,210)+plate('sauvage',-20,-25,145,330)+plate('alba',522,700,-16,250);
 
   /* wax seal: irregular poured outline + engraved olive wreath */
   var pts=[],N=56,i,a,r,d='';
