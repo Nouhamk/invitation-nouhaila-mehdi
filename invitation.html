@@ -389,12 +389,19 @@ body.done{overflow:auto;background-attachment:fixed}
 <script>
 (function(){
   function f(n){return n.toFixed(1)}
-  /* Redouté botanical plates (public domain); anchor = stem base, image grows away from it */
-  var FL={sauvage:[745,1000,.5],alba:[761,1000,.54],mousse:[586,1000,.5]};
-  function plate(n,x,y,a,h,flip){var d=FL[n],w=h*d[0]/d[1];
-    return '<g transform="translate('+x+' '+y+') rotate('+a+')'+(flip?' scale(-1 1)':'')+'"><image href="fleurs/'+({sauvage:'rose-sauvage',alba:'rosa-alba',mousse:'rose-mousseuse'})[n]+'.webp" x="'+f(-w*d[2])+'" y="'+f(-h)+'" width="'+f(w)+'" height="'+f(h)+'"/></g>'}
+  /* rose sprigs from Redouté plates (public domain); placed by centre, width, rotation */
+  var FL={feuillage:[742,916,.98,.3],saule:[875,941,.97,.04],pale:[697,556],duo1:[521,439],duo2:[582,491],double:[661,851],egl1:[460,442],pompon:[451,370],rouge:[762,677]};
+  function hd(n,x,y,w,a,flip){var h=w*FL[n][1]/FL[n][0];
+    return '<g transform="translate('+x+' '+y+') rotate('+a+')'+(flip?' scale(-1 1)':'')+'"><image href="fleurs/'+n+'.webp" x="'+f(-w/2)+'" y="'+f(-h/2)+'" width="'+f(w)+'" height="'+f(h)+'"/></g>'}
+  /* leaves are anchored at their stem end, which sits under a flower */
+  function lf(n,x,y,w,a,flip){var d=FL[n],h=w*d[1]/d[0];
+    return '<g transform="translate('+x+' '+y+') rotate('+a+')'+(flip?' scale(-1 1)':'')+'"><image href="fleurs/'+n+'.webp" x="'+f(-w*d[2])+'" y="'+f(-h*d[3])+'" width="'+f(w)+'" height="'+f(h)+'"/></g>'}
   document.getElementById('fl-card').innerHTML=
-    plate('mousse',500,-20,-140,230,true)+plate('mousse',-20,700,35,210)+plate('sauvage',-20,-25,145,330)+plate('alba',522,700,-16,250);
+    lf('saule',150,30,100,-48,true)+lf('feuillage',30,150,110,-45)+
+    hd('duo1',24,160,120,100)+hd('egl1',158,24,105,200)+hd('pale',50,48,190,140)+hd('pompon',122,104,78,120)+
+    lf('saule',26,655,105,-135,true)+hd('duo2',22,660,85,30)+
+    lf('feuillage',455,600,115,135)+lf('saule',375,655,95,30)+
+    hd('egl1',462,535,95,20)+hd('duo2',362,656,100,-10)+hd('double',452,640,125,-30)+hd('rouge',405,610,95,-40);
 
   /* wax seal: irregular poured outline + engraved olive wreath */
   var pts=[],N=56,i,a,r,d='';
