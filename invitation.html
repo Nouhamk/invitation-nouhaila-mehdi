@@ -463,7 +463,7 @@ body.done{overflow:auto;background-attachment:fixed}
     th.hidden=true;
     btn.disabled=true;btn.textContent='Envoi…';
     fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({_subject:subj+' - '+nom,_template:'table','Nom(s)':nom,'Présence':d.get('presence'),'Nombre de personnes':d.get('nombre'),'Message':d.get('message')||'—'})})
+      body:JSON.stringify({_subject:subj+' - '+nom,_cc:'nouhaila.idalioumhand@gmail.com',_template:'table','Nom(s)':nom,'Présence':d.get('presence'),'Nombre de personnes':d.get('nombre'),'Message':d.get('message')||'—'})})
     .then(function(r){return r.json()}).then(function(j){if(String(j.success)!=='true')throw 0;
       fm.hidden=true;th.textContent=d.get('presence').indexOf('joie')>0?'Merci '+nom+' ! Votre réponse nous est bien parvenue. Nous avons hâte de célébrer avec vous.':'Merci '+nom+' pour votre réponse. Vous serez dans nos pensées.';th.hidden=false})
     .catch(function(){btn.disabled=false;btn.textContent='Envoyer ma réponse';
