@@ -138,11 +138,18 @@ body.done{overflow:auto;background-attachment:fixed}
 .foot small{display:block;font:400 9px 'Cinzel',serif;letter-spacing:.3em;color:var(--gold);margin-top:4px}
 /* static mode used for PDF/PNG export (?export) */
 .export,html:has(.export){background:var(--ivory)}
-.export::before,.export .env,.export .welcome,.export .hint,.export .replay{display:none}
+.export::before,.export .env,.export .welcome,.export .hint,.export .replay,.export .petals{display:none}
 .export .fx{animation:none;opacity:1;transform:none}
 .export .stage{left:0;top:0;margin:0;transform:none!important;perspective:none}
 .export .wrap,.export .card{position:fixed;left:0;top:0;clip-path:none;transform:none;box-shadow:none}
-@media (prefers-reduced-motion:reduce){.stage *{transition-duration:.01s!important}.fx{animation-duration:.01s!important}}
+.petals{position:fixed;inset:0;z-index:15;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-40px;animation:fall linear forwards}
+.petal i{display:block;animation:sway ease-in-out infinite alternate}
+.petal svg{display:block;width:100%;height:100%;animation:tumble linear infinite;filter:drop-shadow(0 2px 2px rgba(120,90,60,.18))}
+@keyframes fall{to{transform:translateY(calc(100vh + 80px))}}
+@keyframes sway{from{transform:translateX(-28px) rotate(-12deg)}to{transform:translateX(28px) rotate(12deg)}}
+@keyframes tumble{to{transform:rotate3d(1,.5,.2,360deg)}}
+@media (prefers-reduced-motion:reduce){.stage *{transition-duration:.01s!important}.fx{animation-duration:.01s!important}.petals{display:none}}
 </style>
 </head>
 <body>
@@ -188,6 +195,8 @@ body.done{overflow:auto;background-attachment:fixed}
       <feMerge><feMergeNode in="cast"/><feMergeNode in="SourceGraphic"/><feMergeNode in="lite"/><feMergeNode in="dark"/></feMerge>
     </filter>
     <radialGradient id="wash"><stop offset="0" stop-color="#e6d6b5" stop-opacity=".45"/><stop offset="1" stop-color="#e6d6b5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="petalg" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fffbf3"/><stop offset=".6" stop-color="#f5e8d3"/><stop offset="1" stop-color="#dfc6a3"/></radialGradient>
+    <path id="petal" d="M10 23C3 18 0 11 2 5C4 1 8 0 10 3C12 0 16 1 18 5C20 11 17 18 10 23Z" fill="url(#petalg)"/>
     <radialGradient id="wax" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#f0dca8"/><stop offset=".55" stop-color="#c4a061"/><stop offset="1" stop-color="#806030"/></radialGradient>
     <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="1" fill="#a88a55" fill-opacity=".5"/></pattern>
     <pattern id="liner" width="36" height="36" patternUnits="userSpaceOnUse">
@@ -315,6 +324,7 @@ body.done{overflow:auto;background-attachment:fixed}
   <p class="hint">Touchez l’enveloppe pour l’ouvrir</p>
 </div>
 <button class="replay" id="replay" type="button">Revoir</button>
+<div class="petals" id="petals" aria-hidden="true"></div>
 <a class="down" href="#compte">Découvrir ↓</a>
 <button class="music" id="musicBtn" type="button" aria-label="Musique : activer ou couper" aria-pressed="false"><i></i><i></i><i></i><i></i></button>
 <audio id="music" src="musique.mp3" loop preload="auto"></audio>
@@ -470,15 +480,22 @@ body.done{overflow:auto;background-attachment:fixed}
       th.textContent='Oups, l’envoi n’a pas abouti. Merci de réessayer dans un instant.';th.hidden=false})});
   function fit(){st.style.zoom=Math.min(innerWidth/520,innerHeight/860)}
   fit();addEventListener('resize',fit);
+  var pc=document.getElementById('petals');
+  function rnd(a,b){return a+Math.random()*(b-a)}
+  function petal(){var p=document.createElement('div'),s=rnd(22,36);p.className='petal';
+    p.style.cssText='left:'+rnd(-2,98)+'vw;width:'+s+'px;height:'+(s*1.15)+'px;opacity:'+rnd(.85,1)+';animation-duration:'+rnd(9,14)+'s';
+    p.innerHTML='<i style="width:100%;height:100%;animation-duration:'+rnd(2.4,4)+'s;animation-delay:-'+rnd(0,4)+'s"><svg viewBox="0 0 20 24" style="animation-duration:'+rnd(4,8)+'s"><use href="#petal"/></svg></i>';
+    p.addEventListener('animationend',function(e){if(e.target===p)p.remove()});pc.appendChild(p)}
   function play(){
     if(busy||b.classList.contains('open'))return;busy=true;
     b.classList.add('open');startMusic();
+    for(var k=0;k<30;k++)t.push(setTimeout(petal,1600+k*rnd(250,420)));
     t.push(setTimeout(function(){b.classList.add('rise')},1900));
     t.push(setTimeout(function(){b.classList.add('final')},3400));
     t.push(setTimeout(function(){b.classList.add('reveal')},4400));
     t.push(setTimeout(function(){b.classList.add('done');busy=false},7700));
   }
-  function reset(){scrollTo(0,0);t.forEach(clearTimeout);t=[];busy=false;b.classList.remove('open','rise','final','reveal','done')}
+  function reset(){scrollTo(0,0);t.forEach(clearTimeout);t=[];busy=false;pc.innerHTML='';b.classList.remove('open','rise','final','reveal','done')}
   st.addEventListener('click',play);
   st.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
   document.getElementById('replay').addEventListener('click',reset);
