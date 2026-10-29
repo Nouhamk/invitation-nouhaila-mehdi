@@ -451,7 +451,7 @@ body.done{overflow:auto;background-attachment:fixed}
   m.addEventListener('error',function(){mb.style.display='none'});
   mb.addEventListener('click',function(){if(m.paused)startMusic();else{m.pause();setOn(false)}});
 
-  /* countdown to 28 Nov 2026, 16:00 Morocco time (UTC+1) */
+  /* countdown to 28 Nov 2026, 14:00 Morocco time (UTC+1) */
   var T=Date.parse('2026-11-28T14:00:00+01:00');
   function p2(n){return n<10?'0'+n:''+n}
   function tick(){var s=Math.max(0,Math.floor((T-Date.now())/1000));
@@ -462,7 +462,7 @@ body.done{overflow:auto;background-attachment:fixed}
     if(!s)document.getElementById('cd-lead').textContent='C’est le grand jour !'}
   tick();setInterval(tick,1000);
   var cal=document.getElementById('cal');
-  cal.href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Mariage Nouhaila & Mehdi')+'&dates=20261128T150000Z/20261129T000000Z&location='+encodeURIComponent('Villa Dar Diafa, Tamaris, 20232 Oulad Azzouz');
+  cal.href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Mariage Nouhaila & Mehdi')+'&dates=20261128T130000Z/20261129T000000Z&location='+encodeURIComponent('Villa Dar Diafa, Tamaris, 20232 Oulad Azzouz');
   cal.target='_blank';cal.rel='noopener';
 
   /* RSVP saved to Google Sheets + emailed by a Google Apps Script web app */
